@@ -3,6 +3,8 @@
 int main()
 {
     int size = 356;
+    int timesteps = 40;
+    float velscale = 1.9;
     // ants walk on a table
     float number_of_ants[size][size];
     float new_number_of_ants[size][size];
@@ -33,7 +35,7 @@ int main()
         }
     }
     // run simulation
-    for (int t = 0; t < 40; t++) {
+    for (int t = 0; t < timesteps; t++) {
         float totants = 0.0;
         for (int i=0;i<size;i++) {
             for (int j=0;j<size;j++) {
@@ -48,8 +50,8 @@ int main()
         }
         for (int i=0;i<size;i++) {
             for (int j=0;j<size;j++) {
-                int di = 1.9*sin(velocity_of_ants[i][j]);
-                int dj = 1.9*cos(velocity_of_ants[i][j]);
+                int di = velscale*sin(velocity_of_ants[i][j]);
+                int dj = velscale*cos(velocity_of_ants[i][j]);
                 int i2 = i + di;
                 int j2 = j + dj;
                 // some ants do not walk
