@@ -3,8 +3,8 @@
 int main()
 {
     int size = 356;
-    int timesteps = 40;
-    float velscale = 1.9;
+    int timesteps = 60;
+    float velscale = 1.8;
     // ants walk on a table
     float number_of_ants[size][size];
     float new_number_of_ants[size][size];
