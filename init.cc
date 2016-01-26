@@ -34,3 +34,13 @@ rarray<float,2> initializeNum(int size, int total_ants){
     }
     return num;
 }
+
+rarray<float,2> initializeNewNum(int size){
+	rarray<float,2> new_number_of_ants(size,size);
+	for (int i=0;i<size;i++) {
+        for (int j=0;j<size;j++) {
+            new_number_of_ants[i][j] = 0.0;
+        }
+    }
+	return new_number_of_ants;
+}
