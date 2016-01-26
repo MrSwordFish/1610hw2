@@ -1,14 +1,16 @@
 #include <cmath>
 #include <iostream>
+#include <rarray>
+#include <rarrayio>
 int main()
 {
     int size = 356;
     int timesteps = 60;
     float velscale = 1.8;
     // ants walk on a table
-    float number_of_ants[size][size];
-    float new_number_of_ants[size][size];
-    float velocity_of_ants[size][size];
+    rarray<float,2> number_of_ants(size,size);
+    rarray<float,2> new_number_of_ants(size,size);
+    rarray<float,2> velocity_of_ants(size,size);
     const int total_ants = 1010; // initial number of ants
     // initialize
     for (int i=0;i<size;i++) {
