@@ -5,7 +5,7 @@
 int main()
 {
     int size = 356;
-    int timesteps = 60;
+    int timesteps = 60; 
     float velscale = 1.8;
     // ants walk on a table
     rarray<float,2> number_of_ants(size,size);
