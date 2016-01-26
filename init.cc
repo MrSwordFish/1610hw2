@@ -1,5 +1,36 @@
+#include <rarray>
+#include <cmath>
 #include "init.h"
 
-int init(int k){
-	return k;
+rarray<float,2> initializeVel(int size){
+	rarray<float,2> velocity_of_ants(size,size);
+	for (int i=0;i<size;i++) {
+        for (int j=0;j<size;j++) {
+            velocity_of_ants[i][j] = M_PI*(sin((2*M_PI*(i+j))/(size*10)+1));
+        }
+    }
+	return velocity_of_ants;
+}
+
+rarray<float,2> initializeNum(int size, int total_ants){
+	rarray<float,2> number_of_ants(size,size);
+	int n = 0;
+    float z = 0;
+    for (int i=0;i<size;i++) {
+        for (int j=0;j<size;j++) {
+            number_of_ants[i][j] = 0.0;
+        }
+    }
+    while (n < total_ants) {
+        for (int i=0;i<size;i++) {
+            for (int j=0;j<size;j++) {
+                z += sin(0.3*(i+j));
+                if (z>1 and n!=total_ants) {
+                    number_of_ants[i][j] += 1;
+                    n += 1;
+                }
+            }
+        }
+    }
+    return number_of_ants;
 }
