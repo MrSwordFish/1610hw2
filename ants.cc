@@ -5,8 +5,8 @@
 int main()
 {
     int size = 356;
-    int timesteps = 60; 
-    float velscale = 1.8;
+    int timesteps = 40; 
+    float velscale = 1.9;
     // ants walk on a table
     rarray<float,2> number_of_ants(size,size);
     rarray<float,2> new_number_of_ants(size,size);
@@ -36,7 +36,6 @@ int main()
             }
         }
     }
-    std::cout << number_of_ants << std::endl;
     // run simulation
     for (int t = 0; t < timesteps; t++) {
         float totants = 0.0;

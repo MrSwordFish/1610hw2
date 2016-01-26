@@ -2,6 +2,7 @@
 #include <cmath>
 #include "init.h"
 
+//function which initializes the velocity field with PI*(sin((2*PI*(x+y))/(size*10)+1)) and returns it
 rarray<float,2> initializeVel(int size){
 	rarray<float,2> velocity_of_ants(size,size);
 	for (int i=0;i<size;i++) {
@@ -12,15 +13,11 @@ rarray<float,2> initializeVel(int size){
 	return velocity_of_ants;
 }
 
+//function initilizes the simulation with a setup. This simple setup places 1 and per space on the grid until you run out of ants...
 rarray<float,2> initializeNum(int size, int total_ants){
-	rarray<float,2> num(size,size);
 	int n = 0;
     float z = 0;
-    for (int i=0;i<size;i++) {
-        for (int j=0;j<size;j++) {
-            num[i][j] = 0.0;
-        }
-    }
+    rarray<float,2> num = initializeNewNum(size);
     while (n < total_ants) {
         for (int i=0;i<size;i++) {
             for (int j=0;j<size;j++) {
@@ -35,6 +32,7 @@ rarray<float,2> initializeNum(int size, int total_ants){
     return num;
 }
 
+//this returns an empty grid of required size
 rarray<float,2> initializeNewNum(int size){
 	rarray<float,2> new_number_of_ants(size,size);
 	for (int i=0;i<size;i++) {

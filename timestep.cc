@@ -2,7 +2,9 @@
 #include <cmath>
 #include "timestep.h"
 
+//this function performs a single time step using the state of the system (velocity, current number, total ants) and updates the new state according to the previous state and some velocity scale factor
 void aSingleStep(rarray<float,2> new_number_of_ants,rarray<float,2> velocity_of_ants,rarray<float,2> number_of_ants,int size, float totants, float velscale){
+    //fills in new ant grid according to formula
     for (int i=0;i<size;i++) {
         for (int j=0;j<size;j++) {
             int di = velscale*sin(velocity_of_ants[i][j]);
@@ -17,6 +19,7 @@ void aSingleStep(rarray<float,2> new_number_of_ants,rarray<float,2> velocity_of_
             }
         }
     }
+    //applies it to the current grid and keeps track of the changes via total ants var
     for (int i=0;i<size;i++) {
         for (int j=0;j<size;j++) {
             number_of_ants[i][j] = new_number_of_ants[i][j];
