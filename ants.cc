@@ -36,6 +36,7 @@ int main()
             }
         }
     }
+    std::cout << number_of_ants << std::endl;
     // run simulation
     for (int t = 0; t < timesteps; t++) {
         float totants = 0.0;

@@ -13,12 +13,12 @@ rarray<float,2> initializeVel(int size){
 }
 
 rarray<float,2> initializeNum(int size, int total_ants){
-	rarray<float,2> number_of_ants(size,size);
+	rarray<float,2> num(size,size);
 	int n = 0;
     float z = 0;
     for (int i=0;i<size;i++) {
         for (int j=0;j<size;j++) {
-            number_of_ants[i][j] = 0.0;
+            num[i][j] = 0.0;
         }
     }
     while (n < total_ants) {
@@ -26,11 +26,11 @@ rarray<float,2> initializeNum(int size, int total_ants){
             for (int j=0;j<size;j++) {
                 z += sin(0.3*(i+j));
                 if (z>1 and n!=total_ants) {
-                    number_of_ants[i][j] += 1;
+                    num[i][j] += 1;
                     n += 1;
                 }
             }
         }
     }
-    return number_of_ants;
+    return num;
 }
